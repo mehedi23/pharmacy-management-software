@@ -99,7 +99,7 @@ export default function MiniDrawer({children}) {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} className="side_navigation">
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -137,7 +137,8 @@ export default function MiniDrawer({children}) {
             )
 
             return(
-              <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+            <Link to={item?.path || '/'} key={index}>
+              <ListItem  disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
                   sx={{
                     minHeight: 48,
@@ -154,14 +155,13 @@ export default function MiniDrawer({children}) {
                   >
                     {item.icon}
                   </ListItemIcon>
-                  <Link to={item?.path || '/'}>
                     <ListItemText 
                       primary={item?.name} 
                       sx={{ opacity: open ? 1 : 0 }} 
                     />
-                  </Link>
                 </ListItemButton>
               </ListItem>
+            </Link>
             )
           })
         }

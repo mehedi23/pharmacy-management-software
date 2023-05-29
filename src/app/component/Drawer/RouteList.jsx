@@ -7,6 +7,7 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import LensBlurIcon from '@mui/icons-material/LensBlur';
+import {Link} from 'react-router-dom';
 
 export default function NestedList({item}) {
     const [open, setOpen] = useState(false);
@@ -14,7 +15,6 @@ export default function NestedList({item}) {
     const handleClick = () => {
         setOpen(!open);
     };
-
 
     return (
         <>
@@ -29,14 +29,16 @@ export default function NestedList({item}) {
             <Collapse in={open} timeout="auto" unmountOnExit>
                 {
                     item.children?.map((_item, _index) => (
-                        <List component="div" disablePadding key={_index}>
-                            <ListItemButton sx={{ pl: 6}}>
-                                <ListItemIcon sx={{minWidth : 30 }}>
-                                    <LensBlurIcon fontSize='8px'/>
-                                </ListItemIcon>
-                                <ListItemText primary={_item?.name} />
-                            </ListItemButton>
-                        </List>
+                        <Link to={_item?.path} key={_index}>
+                            <List component="div" disablePadding>
+                                <ListItemButton sx={{ pl: 6}}>
+                                    <ListItemIcon sx={{minWidth : 30 }}>
+                                        <LensBlurIcon fontSize='8px'/>
+                                    </ListItemIcon>
+                                    <ListItemText primary={_item?.name} />
+                                </ListItemButton>
+                            </List>
+                        </Link>
                     ))
                 }
             </Collapse>

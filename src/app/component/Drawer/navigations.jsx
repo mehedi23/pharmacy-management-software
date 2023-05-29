@@ -28,12 +28,12 @@ export const SIDE_NAVIGATION = [
         icon : <GradingOutlined/>,
         children : [
             {
-                path : '/add-order',
+                path : '/order/add',
                 name : 'Add Order',
                 icon : '',
             },
             {
-                path : '/order-list',
+                path : '/order/list',
                 name : 'Order List',
                 icon : '',
             }
@@ -44,12 +44,12 @@ export const SIDE_NAVIGATION = [
         icon : <PriceChangeOutlined/>,
         children : [
             {
-                path : '/add-billing',
-                name : 'New Billing',
+                path : '/billing/create',
+                name : 'Create',
                 icon : '',
             },
             {
-                path : '/billing-history',
+                path : '/billing/history',
                 name : 'Billing History',
                 icon : '',
             }
