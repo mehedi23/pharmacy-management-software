@@ -1,5 +1,5 @@
 :root{
-  --primary : #212F3D;
+  --primary : #0b1826;
 }
 
 *{
@@ -10,7 +10,18 @@
 
 
 
-.side_navigation *{
+.side_navigation ul *{
   color: var(--primary) !important;
   text-decoration: none !important;
+}
+
+.side_navigation a.active li{
+  background-color: #fdecf2;
+}
+
+.app-main-body{
+  background-color: #eee;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
 }

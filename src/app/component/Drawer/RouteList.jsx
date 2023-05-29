@@ -7,7 +7,7 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import LensBlurIcon from '@mui/icons-material/LensBlur';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export default function NestedList({item}) {
     const [open, setOpen] = useState(false);
@@ -29,8 +29,8 @@ export default function NestedList({item}) {
             <Collapse in={open} timeout="auto" unmountOnExit>
                 {
                     item.children?.map((_item, _index) => (
-                        <Link to={_item?.path} key={_index}>
-                            <List component="div" disablePadding>
+                        <NavLink to={_item?.path} key={_index}>
+                            <List component="li" disablePadding>
                                 <ListItemButton sx={{ pl: 6}}>
                                     <ListItemIcon sx={{minWidth : 30 }}>
                                         <LensBlurIcon fontSize='8px'/>
@@ -38,7 +38,7 @@ export default function NestedList({item}) {
                                     <ListItemText primary={_item?.name} />
                                 </ListItemButton>
                             </List>
-                        </Link>
+                        </NavLink>
                     ))
                 }
             </Collapse>

@@ -17,7 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import RouteList from './RouteList';
 import {SIDE_NAVIGATION} from './navigations';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -54,6 +54,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
+  background : 'var(--primary)',
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
@@ -115,9 +116,9 @@ export default function MiniDrawer({children}) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <p style={{color : "#fff"}}>
             Mini variant drawer
-          </Typography>
+          </p>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -137,7 +138,7 @@ export default function MiniDrawer({children}) {
             )
 
             return(
-            <Link to={item?.path || '/'} key={index}>
+            <NavLink to={item?.path || '/'} key={index}>
               <ListItem  disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
                   sx={{
@@ -161,13 +162,13 @@ export default function MiniDrawer({children}) {
                     />
                 </ListItemButton>
               </ListItem>
-            </Link>
+            </NavLink>
             )
           })
         }
         </List>
       </Drawer>
-      <Box component="main">
+      <Box component="main" className='app-main-body'>
         <DrawerHeader />
         {children}
       </Box>
