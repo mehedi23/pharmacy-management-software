@@ -17,9 +17,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import RouteList from './RouteList';
 import {SIDE_NAVIGATION} from './navigations';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
+import dateFormat, { masks } from "dateformat";
 
 const drawerWidth = 240;
+const _time = new Date();
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -116,9 +118,16 @@ export default function MiniDrawer({children}) {
           >
             <MenuIcon />
           </IconButton>
-          <p style={{color : "#fff"}}>
-            Mini variant drawer
-          </p>
+          <div>
+            <Link to="/calender">
+              <p style={{color : "#fff"}}>
+                {dateFormat(_time, "dddd, mmmm dS, yyyy")}
+              </p>
+              <p style={{color : "#fff"}}>
+                {dateFormat(_time, "h:MM:ss TT")}
+              </p>
+            </Link>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>

@@ -1,5 +1,6 @@
 :root{
   --primary : #0b1826;
+  --secondary : #566573;
 }
 
 *{
@@ -8,7 +9,9 @@
   box-sizing: border-box;
 }
 
-
+a{
+  text-decoration: none !important;
+}
 
 .side_navigation ul *{
   color: var(--primary) !important;

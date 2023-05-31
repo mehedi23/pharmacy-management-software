@@ -4,6 +4,7 @@ import {CompanyRoutes} from './pages/Companies/RouteCompany';
 import {StockRoutes} from './pages/Stocks/RouteStocks';
 import {OrderRoutes} from './pages/Orders/RouteOrder';
 import {BillingRoutes} from './pages/Billing/RouteBilling';
+import Calender from './pages/Calender';
 
 export const ALL_PAGE_ROUTE = [
     {
@@ -19,5 +20,9 @@ export const ALL_PAGE_ROUTE = [
     {
         path: "/billing",
         children: [...BillingRoutes] 
+    },
+    {
+        path: "/calender",
+        element: <Calender />,
     },
 ];
