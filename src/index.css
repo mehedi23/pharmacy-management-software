@@ -28,3 +28,18 @@ a{
   height: 100vh;
   padding: 20px;
 }
+
+.rdt_TableCell,
+.rdt_TableCol_Sortable{
+  font-size: 15px;
+  color: var(--secondary);
+}
+
+.rdt_TableCol_Sortable{
+  font-weight: bold;
+  color: var(--primary);
+}
+
+h1{
+  color: var(--primary);
+}

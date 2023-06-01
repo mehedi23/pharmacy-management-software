@@ -15,13 +15,13 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const H1 = styled('h1')({
-    color : 'var(--primary)',
+    color : '#fff',
     textAlign : 'center',
     fontSize : 34
 })
 
 const P1 = styled('p')({
-    color : 'var(--secondary)',
+    color : '#fff',
     textAlign : 'center',
     fontSize : 18
 })
@@ -46,23 +46,23 @@ const Dashboard = () => {
             <Box sx={{ flexGrow: 1, marginBottom : 2 }}>
                 <Grid container spacing={2}>
                     <CardBox
-                        color="#AED6F1"
-                        value={10}
+                        color="#58508d"
+                        value={8234}
                         name="Product"
                     />
                     <CardBox
-                        color="#48C9B0"
-                        value={10}
+                        color="#bc5090"
+                        value={9788}
                         name="Stock"
                     />
                     <CardBox
-                        color="#D2B4DE"
-                        value={10}
+                        color="#ff6361"
+                        value={22}
                         name="Companies"
                     />
                      <CardBox
-                        color="#E59866"
-                        value={10}
+                        color="#ffa600"
+                        value={45}
                         name="Order"
                     />
                 </Grid>

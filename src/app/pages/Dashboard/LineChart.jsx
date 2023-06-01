@@ -19,13 +19,13 @@ const LineChart = () => {
             },
             series: [
                 {
-                    name: 'To day',
+                    name: 'Today',
                     data: [820, 932, 901, 934, 1290, 1330, 1320],
                     type: 'line',
                     smooth: true
                 },
                 {
-                    name: 'Yester day',
+                    name: 'Yesterday',
                     data: [222, 333, 232, 233, 232, 332, 333],
                     type: 'line',
                     smooth: true
@@ -38,6 +38,9 @@ const LineChart = () => {
                     restore: {},
                     saveAsImage: {}
                 }
+            },
+            tooltip : {
+                show: true,
             }
         };
     
