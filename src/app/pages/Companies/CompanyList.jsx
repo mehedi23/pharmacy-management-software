@@ -11,7 +11,6 @@ const data = [
     { id: 3, name: 'Essential Drugs', total_products: 4 },
     { id: 4, name: 'Genvio', total_products: 14 },
     { id: 5, name: 'Healthcare', total_products: 12 },
-    // ... more data
 ];
 
 

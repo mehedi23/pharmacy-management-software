@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { styled } from '@mui/system';
-
+import _ from 'lodash';
 
 
 const TopSection = styled('div')({
@@ -31,10 +31,23 @@ const Table =({
     const [filterText, setFilterText] = useState('');
     const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
     const [columnsList, setColumnsList] = useState(columns)
+    const [tableData, setTableData] = useState(data)
   
-    const filteredItems = data.filter((item) =>
-        item[filter_key] && item[filter_key].toLowerCase().includes(filterText.toLowerCase())
-    );
+
+    function filterObjects(searchQuery) {
+        const lowercaseQuery = searchQuery.toLowerCase();
+        return _.filter(data, (obj) => {
+            return _.some(obj, (value) => {
+                const lowercaseValue = value.toString().toLowerCase();
+                return _.includes(lowercaseValue, lowercaseQuery);
+            });
+        });
+    };
+
+    const filteringTeble = (e) => {
+        const result = filterObjects(e);
+        setTableData(result);
+    };
 
 
     useEffect(()=> {
@@ -76,11 +89,12 @@ const Table =({
                     disableClearable
                     options={data.map((option) => option[filter_key])}
                     onChange={(e, value)=>{
-                        setFilterText(value);
+                        // setFilterText(value);
+                        filteringTeble(value)
                     }}
                     renderInput={(params) => (
                         <TextField
-                            onChange={(e)=> setFilterText(e.target.value)}
+                            onChange={(e)=> filteringTeble(e.target.value)}
                             {...params}
                                 label="Search input"
                                 InputProps={{
@@ -98,7 +112,7 @@ const Table =({
             </TopSection>
             <DataTable
                 columns={columnsList}
-                data={filteredItems}
+                data={tableData}
                 pagination
                 paginationResetDefaultPage={resetPaginationToggle}
                 selectableRows={selectable}
