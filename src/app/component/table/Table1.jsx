@@ -24,15 +24,13 @@ const Table =({
     columns,
     filter_key = 'name',
     crud=false,
-    selectable=true,
-    tittle='Tittle'
+    tittle='Tittle',
+    ...props
 }) => {
 
-    const [filterText, setFilterText] = useState('');
-    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
     const [columnsList, setColumnsList] = useState(columns)
     const [tableData, setTableData] = useState(data)
-  
+    
 
     function filterObjects(searchQuery) {
         const lowercaseQuery = searchQuery.toLowerCase();
@@ -89,7 +87,6 @@ const Table =({
                     disableClearable
                     options={data.map((option) => option[filter_key])}
                     onChange={(e, value)=>{
-                        // setFilterText(value);
                         filteringTeble(value)
                     }}
                     renderInput={(params) => (
@@ -110,13 +107,17 @@ const Table =({
                     }}
                 />
             </TopSection>
+
+            
             <DataTable
                 columns={columnsList}
                 data={tableData}
-                pagination
-                paginationResetDefaultPage={resetPaginationToggle}
-                selectableRows={selectable}
+
+                // pagination
+                // paginationResetDefaultPage={resetPaginationToggle}
+                // selectableRows={selectable}
                 persistTableHead
+                {...props}
             />
         </Paper>
     )

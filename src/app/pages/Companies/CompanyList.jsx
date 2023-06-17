@@ -21,6 +21,12 @@ const CompanyList = () => {
         { name: 'Name', selector: 'name', sortable: true, },
         { name: 'Total Product', selector: 'total_products', sortable: true, }
     ];
+
+    const handleChange = ({ selectedRows }) => {
+        console.log('Selected Rows: ', selectedRows);
+    };
+
+
     return (
         <>
             <Paper style={{
@@ -52,6 +58,11 @@ const CompanyList = () => {
                 filter_key='name'
                 crud={true}
                 tittle="Company List"
+
+                onSelectedRowsChange={handleChange}
+                selectableRows={true}
+                paginationResetDefaultPage={false}
+                pagination
             />
         </>
     )
