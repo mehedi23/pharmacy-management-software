@@ -8,6 +8,13 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { styled } from '@mui/system';
 import _ from 'lodash';
+import Slide from '@mui/material/Slide';
+import AddIcon from '@mui/icons-material/Add';
+
+
+
+
+
 
 
 const TopSection = styled('div')({
@@ -20,11 +27,13 @@ const TopSection = styled('div')({
 
 
 const Table =({
-    data,
-    columns,
-    filter_key = 'name',
-    crud=false,
-    tittle='Tittle',
+    data, // table body data
+    columns, // table colums
+    filter_key = 'name', // search filter object key 
+    crud=false, // is edit
+    tittle='Tittle', // tittle
+    addButton=false, // can add
+    addDialogVoid= () => {}, // add button funtion
     ...props
 }) => {
 
@@ -81,7 +90,23 @@ const Table =({
         <Paper sx={{padding : '30px 10px'}}>
 
             <TopSection>
-                <h2> {tittle} </h2>
+                <h2> 
+                    {tittle}
+
+                    {
+                        addButton &&
+                        <IconButton 
+                            aria-label="add" 
+                            size="small"
+                            onClick={addDialogVoid}
+                            sx={{
+                                marginLeft: 2
+                            }}
+                        >
+                            <AddIcon />
+                        </IconButton>
+                    }
+                </h2>
                 <Autocomplete
                     freeSolo
                     disableClearable
@@ -112,10 +137,6 @@ const Table =({
             <DataTable
                 columns={columnsList}
                 data={tableData}
-
-                // pagination
-                // paginationResetDefaultPage={resetPaginationToggle}
-                // selectableRows={selectable}
                 persistTableHead
                 {...props}
             />
