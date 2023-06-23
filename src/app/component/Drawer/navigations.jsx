@@ -19,8 +19,8 @@ export const SIDE_NAVIGATION = [
         icon : <AddBusiness/>,
     },
     {
-        path : '/stock-list',
-        name : 'Stock',
+        path : '/product-list',
+        name : 'Products',
         icon : <InventoryOutlined/>,
     },
     {

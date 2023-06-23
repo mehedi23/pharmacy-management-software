@@ -3,7 +3,7 @@ import StoksList from './StoksList';
 
 export const StockRoutes = [
     {
-        path: "/stock-list",
+        path: "/product-list",
         element: <StoksList />
     },
 ];
