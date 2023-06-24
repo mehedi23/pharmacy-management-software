@@ -29,14 +29,12 @@ const Table =({
     data, // table body data
     columns, // table colums
     filter_key = 'name', // search filter object key 
-    crud=false, // is edit
     tittle='Tittle', // tittle
     addButton=false, // can add
     addDialogVoid= () => {}, // add button funtion
     ...props
 }) => {
 
-    const [columnsList, setColumnsList] = useState(columns)
     const [tableData, setTableData] = useState(data)
     
 
@@ -56,33 +54,6 @@ const Table =({
     };
 
 
-    useEffect(()=> {
-        if(crud){
-            setColumnsList([
-                ...columns,
-                {
-                    cell: () => (
-                        <>
-                            <IconButton 
-                                aria-label="edit"
-                            >
-                                <EditIcon color='success'/>
-                            </IconButton>
-                            <IconButton 
-                                aria-label="delete" 
-                                sx={{marginLeft : 2}}
-                            >
-                                <DeleteIcon color='error' />
-                            </IconButton>
-                        </>
-                    ),
-                    ignoreRowClick: true,
-                    allowOverflow: true,
-                    button: true,
-                },
-            ])
-        }
-    },[columns])
   
 
     return (
@@ -134,7 +105,7 @@ const Table =({
 
             
             <DataTable
-                columns={columnsList}
+                columns={columns}
                 data={tableData}
                 persistTableHead
                 {...props}

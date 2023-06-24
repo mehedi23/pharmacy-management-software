@@ -56,7 +56,6 @@ const CompanyList = () => {
                 data={data}
                 columns={columns}
                 filter_key='name'
-                crud={true}
                 tittle="Company List"
 
                 onSelectedRowsChange={handleChange}

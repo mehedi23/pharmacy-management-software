@@ -50,3 +50,16 @@ h1{
   gap: 30px;
   margin-bottom: 30px;
 }
+
+.product-description-modal{
+  min-width: 300px;
+}
+
+.product-description-modal label{
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.product-description-modal p{
+  width: 100%;
+}
